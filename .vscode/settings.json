@@ -1,0 +1,19 @@
+{   
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "prettier.singleQuote": true,
+    "prettier.printWidth": 120,
+    "files.eol": "\n",
+    "gitlens.codeLens.enabled": false,
+    "tslint.enable": true,
+    "tslint.jsEnable": true,
+    "tslint.autoFixOnSave": true,
+    "window.zoomLevel": 0,
+    "tslint.exclude": [
+        "test/*",
+        "node_modules",
+        "dist"
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.formatOnSave": true
+}
