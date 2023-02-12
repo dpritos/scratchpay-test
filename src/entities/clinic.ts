@@ -1,6 +1,6 @@
 import { CLINIC_TYPE } from '../contants';
 import { Clinic, ClinicFilter, DentalClinicData, VetClinicData } from '../contracts';
-import * as utils from '../lib/utils';
+// import * as utils from '../lib/utils';
 
 export default abstract class ClinicParent {
   transformClinic(type: CLINIC_TYPE, data: DentalClinicData | VetClinicData): Clinic | undefined {
@@ -31,13 +31,22 @@ export default abstract class ClinicParent {
       valid = clinic.state === filters.state;
     }
 
-    if (valid && (filters.from || filters.to)) {
-      const clinicStart = utils.hourStringToNumber(clinic.availability.from);
-      const clinicEnd = utils.hourStringToNumber(clinic.availability.to);
+    // if (valid && (filters.from || filters.to)) {
+    //   const clinicStart = utils.hourStringToNumber(clinic.availability.from);
+    //   const clinicEnd = utils.hourStringToNumber(clinic.availability.to);
 
-      const filterStart = utils.hourStringToNumber(filters.from || '00:00');
-      const filterEnd = utils.hourStringToNumber(filters.to || '24:00');
-      valid = clinicStart <= filterStart && clinicEnd >= filterEnd;
+    //   const filterStart = utils.hourStringToNumber(filters.from || '00:00');
+    //   const filterEnd = utils.hourStringToNumber(filters.to || '24:00');
+    //   valid = clinicStart <= filterStart && clinicEnd >= filterEnd;
+    // }
+
+    // Exact matches for simplicity
+    if (valid && filters.from) {
+      valid = filters.from === clinic.availability.from;
+    }
+
+    if (valid && filters.to) {
+      valid = filters.to === clinic.availability.to;
     }
 
     return valid;

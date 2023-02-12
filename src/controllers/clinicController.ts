@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { Controller } from '../entities';
 import { Methods } from '../contants';
 import * as log from '../lib/logger';
-import ClinicService from '../services/clinic';
+import { ClinicService } from '../services';
 
 export default class ClinicController extends Controller {
   clinicService: ClinicService;

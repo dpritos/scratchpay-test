@@ -14,4 +14,4 @@ To install this service:
 
 - No input validation required which means availability filter should be a valid `HH:mm` format
 - No pagination for larger data set
-- Availability searches are seach for the actual available clinics, not just exact match in time. So if I search from='16:00' and to='18:00', clinic with availability `{ "from": "15:00", "to": "22:30" }` will be included.
+- Availability searches are exact match on from and to for simplicity
