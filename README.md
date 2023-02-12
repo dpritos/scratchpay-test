@@ -13,5 +13,5 @@ To install this service:
 ## Assumptions
 
 - No input validation required which means availability filter should be a valid `HH:mm` format
-- No pagination for larger data set
+- No pagination
 - Availability searches are exact match on from and to for simplicity
