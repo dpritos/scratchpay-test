@@ -12,8 +12,21 @@ export interface ClinicAvailability {
 }
 
 export interface ClinicFilter {
-  name?: string;
   state?: string;
   from?: string;
   to?: string;
+}
+
+export interface DentalClinicData {
+  name: string;
+  stateName: string;
+  availability: ClinicAvailability;
+  [key: string]: any;
+}
+
+export interface VetClinicData {
+  clinicName: string;
+  stateCode: string;
+  opening: ClinicAvailability;
+  [key: string]: any;
 }

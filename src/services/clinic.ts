@@ -1,5 +1,5 @@
 import { DentalClinic, VetClinic } from '../repositories';
-import { Clinic } from '../contracts';
+import { Clinic, ClinicFilter } from '../contracts';
 
 export default class ClinicService {
   dentalClinic: DentalClinic;
@@ -10,7 +10,8 @@ export default class ClinicService {
     this.vetClinic = new VetClinic();
   }
 
-  async listClinics(query?: any): Promise<Clinic[]> {
-    return [];
+  async listClinics(query: ClinicFilter = {}): Promise<Clinic[]> {
+    const [dentalClinics, vetClinics] = await Promise.all([this.dentalClinic.list(query), this.vetClinic.list(query)]);
+    return [...dentalClinics, ...vetClinics];
   }
 }

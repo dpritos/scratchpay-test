@@ -1,10 +1,7 @@
 // express
-import * as dotenv from 'dotenv';
 import * as express from 'express';
 import * as morgan from 'morgan';
 import * as cors from 'cors';
-
-dotenv.config();
 
 // important entities
 import { Server, Controller } from './entities';
